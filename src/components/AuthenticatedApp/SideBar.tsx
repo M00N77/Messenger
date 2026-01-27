@@ -73,7 +73,7 @@ const SideBar = () => {
                 </div>
             </div>
 
-            <div className="flex flex-1 flex-col  bg-gray-300">
+            <div className="flex flex-1 flex-col bg-gray-300 overflow-y-auto">
                 <div className="flex flex-col px-2 py-4 gap-y-4">
                     <h1 className="h-12 flex items-center text-4xl font-medium">Messeges</h1>
 

@@ -1,5 +1,6 @@
 import ChatList from "./ChatList"
 
+
 const SideBar = () => {
 
     
@@ -7,7 +8,7 @@ const SideBar = () => {
 
     
     return (
-        <div className="grid grid-cols-[70px_1fr]  h-screen  ">
+        <div className="grid grid-cols-[50px_1fr_2px]  h-screen  ">
             
             <div className="flex flex-col justify-between items-center bg-gray-100">
                 <div className="w-1/2 flex flex-col items-center gap-y-6 py-4 " >
@@ -73,7 +74,7 @@ const SideBar = () => {
                 </div>
             </div>
 
-            <div className="flex flex-1 flex-col bg-gray-300 overflow-y-auto">
+            <div className="flex flex-1 flex-col bg-gray-200 overflow-y-auto min-w-25">
                 <div className="flex flex-col px-2 py-4 gap-y-4">
                     <h1 className="h-12 flex items-center text-4xl font-medium">Messeges</h1>
 
@@ -107,6 +108,7 @@ const SideBar = () => {
 
                 </div>
             </div>
+            
         </div>
     )
 }

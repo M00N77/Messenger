@@ -1,4 +1,4 @@
-import type { User } from '../../types'
+import type { User } from 't'
 
 interface ChatItemProps {
     user: User
@@ -9,9 +9,9 @@ const ChatItem = ({ user }: ChatItemProps) => {
     return (
         <div>
             <div className="flex justify-between py-2" >
-                <div className="flex gap-x-2" >
+                <div className="flex justify-center items-center gap-x-2" >
                     <div className="relative">
-                        <img src={avatar} alt="" className="w-15" />
+                        <img src={avatar} alt="" className="w-10 h-10 rounded-full" />
                         {isOnline && <div className=" absolute right-0 bottom-0 border-3 border-green-500 w-3 h-3 bg-green-500 rounded-full" ></div>}
                     </div>
                     <div className="flex flex-col justify-between">

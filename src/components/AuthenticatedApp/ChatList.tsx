@@ -20,9 +20,9 @@ const ChatList = () => {
         {
             id: 2,
             name: "Kate Rose",
-            avatar: "/public/img/avatar.png",
-            isOnline: false,
-            isTyping: false,
+            avatar: "/public/img/avatar_2.png",
+            isOnline: true,
+            isTyping: true,
             lastMessage: {
                 count: 2,
                 text: "Did you send the report?",
@@ -153,10 +153,10 @@ const ChatList = () => {
             isOnline: false,
             isTyping: false,
             lastMessage: {
-                count:2,
+                count:4,
                 text: "I'll be back 👍",
                 time: "Mon",
-                status: "read",
+                status: "sent",
             }
         },
         {
@@ -177,7 +177,7 @@ const ChatList = () => {
             name: "Sarah Connor",
             avatar: "/public/img/avatar.png",
             isOnline: false,
-            isTyping: false,
+            isTyping: true,
             lastMessage: {
                 count:2,
                 text: "I'll be back 👍",

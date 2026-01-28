@@ -1,129 +1,60 @@
 import MessageItem from "./MessageItem";
 
 const Chat = () => {
-  const chatMessages = [
-    {
-      id: 1,
-      sender: 'other', // Собеседник
-      text: "Привет! Как продвигается проект?",
-      time: "10:00",
-      status: "read"
-    },
-    {
-      id: 2,
-      sender: 'me', // Я
-      text: "Привет! Уже сделал список чатов, сейчас верстаю окно переписки.",
-      time: "10:05",
-      status: "read"
-    },
-    {
-      id: 3,
-      sender: 'other',
-      text: "Круто! А как реализовал разделение сообщений?",
-      time: "10:06",
-      status: "read"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 5,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      time: "10:07",
-      status: "delivered"
-    },
-    {
-      id: 6,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      time: "10:10",
-      status: "sent"
-    },
-    
-    
-  ];
+ 
+const chatMessages = [
+  {
+    id: 1,
+    sender: 'other',
+    text: "Привет! Как продвигается проект?",
+    time: "10:00",
+    status: "read",
+    avatar: "/img/avatar.png" // Используй путь от корня (без public)
+  },
+  {
+    id: 2,
+    sender: 'me',
+    text: "Привет! Уже сделал список чатов, сейчас верстаю окно переписки.",
+    time: "10:05",
+    status: "read",
+    avatar: "/img/avatar.png" // Твоя аватарка (если нужна)
+  },
+  {
+    id: 3,
+    sender: 'other',
+    text: "Круто! А как реализовал разделение сообщений?",
+    time: "10:06",
+    status: "read",
+    avatar: "/img/avatar.png"
+  },
+  {
+    id: 4,
+    sender: 'me',
+    text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
+    time: "10:07",
+    status: "delivered",
+    avatar: "/img/avatar.png"
+  },
+  {
+    id: 5,
+    sender: 'other',
+    text: "Гениально 🔥 Жду скриншот!",
+    time: "10:10",
+    status: "sent",
+    avatar: "/img/avatar.png"
+  },
+  {
+    id: 6,
+    sender: 'me',
+    text: "И не забудь про ресайз сайдбара!",
+    time: "10:12",
+    status: "sent",
+    avatar: "/img/avatar.png"
+  }
+];
+
+
+
 
   return (
     <div className="grid grid-rows-[1fr_60px] h-screen ">

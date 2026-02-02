@@ -4,10 +4,10 @@ interface ChatItemProps {
     user: User
 }
 
-const ChatItem = ({ user }: ChatItemProps) => {
+const ChatItem = ({ user,onSelectChat }: ChatItemProps) => {
     const { name, avatar, isOnline, isTyping, lastMessage } = user;
     return (
-        <div>
+        <div onClick={()=>onSelectChat(user.id)}>
             <div className="flex justify-between py-2" >
                 <div className="flex justify-center items-center gap-x-2" >
                     <div className="relative">

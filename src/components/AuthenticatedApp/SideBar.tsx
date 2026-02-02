@@ -1,10 +1,10 @@
 import ChatList from "./ChatList"
 
 
-const SideBar = () => {
+const SideBar = ({users,onSelectChat}) => {
 
     
-
+    
 
     
     return (
@@ -104,7 +104,7 @@ const SideBar = () => {
 
                     </div>
 
-                    <ChatList/>
+                    <ChatList users={users} onSelectChat={onSelectChat} />
 
                 </div>
             </div>

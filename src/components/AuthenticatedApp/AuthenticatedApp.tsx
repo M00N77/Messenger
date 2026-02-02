@@ -1,73 +1,42 @@
 import SideBar from "./SideBar"
 
 import Chat from "./Chat"
-
+import { useState } from "react"
+import { v4 as uuidv4 } from 'uuid';
 
 
 const AuthenticatedApp = () => {
+
+
+  const initMessages = JSON.parse(localStorage.getItem('localMessages')) || []
+
+
+
+  const [chatMessages, setChatMessages] = useState(initMessages)
+
   
-const chatMessages = [
-    // Самое новое (Сегодня, 10:12)
-    {
-      id: 6,
+  const sendMessage = (textMessage) => { 
+    if(!textMessage.trim()) return;
+    const newMessage = {
+      id: uuidv4(),
       sender: 'me',
-      text: "И не забудь про ресайз сайдбара!",
-      data: "2026-01-30T10:12:00", // Сегодня
+      text:textMessage,
+      date: new Date().toISOString(),
       status: "sent",
-      avatar: "/img/my-avatar.png"
-    },
-    // Сегодня, 10:10
-    {
-      id: 5,
-      sender: 'other',
-      text: "Гениально 🔥 Жду скриншот!",
-      data: "2026-01-30T10:10:00", // Сегодня
-      status: "sent",
-      avatar: "/img/avatar.png"
-    },
-    // Вчера, 10:07
-    {
-      id: 4,
-      sender: 'me',
-      text: "Через условные классы в Tailwind. Если sender === 'me', добавляю ml-auto и синий фон.",
-      data: "2026-01-29T10:07:00", // Вчера
-      status: "delivered",
-      avatar: "/img/my-avatar.png"
-    },
-    // Вчера, 10:06
-    {
-      id: 3,
-      sender: 'other',
-      text: "Круто! А как реализовал разделение сообщений?",
-      data: "2026-01-29T10:06:00", // Вчера
-      status: "read",
-      avatar: "/img/avatar.png"
-    },
-    // Позавчера (28 Янв)
-    {
-      id: 2,
-      sender: 'me',
-      text: "Привет! Уже сделал список чатов, сейчас верстаю окно переписки.",
-      data: "2026-01-28T10:05:00",
-      status: "read",
-      avatar: "/img/my-avatar.png"
-    },
-    // Давно (25 Янв)
-    {
-      id: 1,
-      sender: 'other',
-      text: "Привет! Как продвигается проект?",
-      data: "2026-01-25T10:00:00",
-      status: "read",
-      avatar: "/img/avatar.png"
+      avatar: "/img/my-avatar.png",
     }
-  ];
-  
-  
+
+    setChatMessages(prev=>{
+      const updated = [...prev,newMessage]
+      localStorage.setItem('localMessages',JSON.stringify(updated))
+      return updated 
+    })
+  }
+
   return (
     <div className='grid grid-cols-[350px_1fr]' >
-        <SideBar />
-        <Chat chatMessages={chatMessages} />
+      <SideBar />
+      <Chat chatMessages={chatMessages} setChatMessages={setChatMessages} onSendMessage={sendMessage} />
     </div>
   )
 }

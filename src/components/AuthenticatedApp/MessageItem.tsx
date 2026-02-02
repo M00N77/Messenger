@@ -1,16 +1,20 @@
+import formatTime from "../../utiils/formatTime.js"
 interface MessageItem{
     
 }
 
+
 const MessageItem = ({ sms }) => {
-    const { sender, text, time } = sms;
+    const { sender, text, date } = sms;
+   
+
     return (
-        sms.sender === 'me' ?
+        sender === 'me' ?
             <div className="flex justify-end items-center gap-x-1">
                 
                 <div className="flex  py-2 px-4 rounded-2xl  w-auto max-w-1/3 'ml-auto bg-green-500 text-white">
                     <p>{text}</p>
-                    <span className="text-xs ml-2 self-end font-light justify-end">{time}</span>
+                    <span className="text-xs ml-2 self-end font-light justify-end">{formatTime(date)}</span>
                 </div>
 
                 <img src="img/avatar.png" alt="" className="flex self-end items-end w-7 h-7" />
@@ -22,7 +26,7 @@ const MessageItem = ({ sms }) => {
                 
                 <div className="flex  py-2 px-4 rounded-2xl w-auto max-w-1/3 'ml-auto bg-gray-500 text-white">
                     <p>{text}</p>
-                    <span className="text-xs ml-2 self-end font-light justify-end">{time}</span>
+                    <span className="text-xs ml-2 self-end font-light justify-end">{formatTime(date)}</span>
                 </div>
             </div>
     )

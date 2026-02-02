@@ -8,7 +8,12 @@ import { v4 as uuidv4 } from 'uuid';
 const AuthenticatedApp = () => {
 
 
-  const initMessages = JSON.parse(localStorage.getItem('localMessages')) || []
+  const initMessages = JSON.parse(localStorage.getItem('localMessages')) || [{id: uuidv4(),
+      sender: 'other',
+      text:'wefewfwefwef',
+      date: new Date().toISOString(),
+      status: "sent",
+      avatar: "/img/my-avatar.png",}]
 
 
 

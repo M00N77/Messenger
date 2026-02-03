@@ -10,8 +10,8 @@ interface ChatItemProps {
 }
 
 const ChatItem = ({ user, onSelectChat, isActive }: ChatItemProps) => {
-    const { name, avatar, isOnline, isTyping, lastMessage } = user;
-
+    const { name, avatar, isOnline,lastMessage } = user;
+    
     return (
         <div onClick={() => onSelectChat(user.id)} className={clsx(isActive ? "bg-amber-50" : "")}>
             <div className="flex justify-between py-2 px-2" >
@@ -22,9 +22,7 @@ const ChatItem = ({ user, onSelectChat, isActive }: ChatItemProps) => {
                     </div>
                     <div className="flex flex-col justify-between">
                         <p className="text-xl" >{name}</p>
-                        {isTyping ? <p className="text-green-500" >...is typing</p> :
-                            <p className="text-gray-500" >{lastMessage.text}</p>
-                        }
+                        {<p className="text-gray-500" >{lastMessage.text}</p>}
 
                     </div>
                 </div>
@@ -32,8 +30,8 @@ const ChatItem = ({ user, onSelectChat, isActive }: ChatItemProps) => {
                 <div className="flex flex-col justify-between items-end ">
                     {lastMessage.count === 0 ? (
                         <>
-                            <p className="text-gray-500" >{formatTime(lastMessage.createdAt)}</p>
-                            {lastMessage.status === 'sent' && <span className="text-gray-400" >✓</span>}
+                            <p className="text-gray-500 " >{formatTime(lastMessage.createdAt)}</p>
+                            {lastMessage.status === 'sent' && <span className="text-blue-300 " >✓</span>}
                             {lastMessage.status === 'read' && <span className="text-blue-500" >✓✓</span>}
                         </>
                     ) : (

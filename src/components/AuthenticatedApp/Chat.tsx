@@ -40,7 +40,12 @@ const Chat = ({ chatMessages, setChatMessages,onSendMessage }) => {
         <button className="flex justify-center items-center" >
           <img src="img/add_file_icon.png" alt="" className="w-7 " />
         </button>
-        <input ref={messageInput} type="text" placeholder="Type your message..." className="bg-gray-200 rounded-2xl px-4" />
+        <input 
+        ref={messageInput} 
+        type="text" 
+        placeholder="Type your message..." 
+        className="bg-gray-200 rounded-2xl px-4" 
+        />
 
         <button
           className="flex justify-center items-center text-green-500 font-medium"

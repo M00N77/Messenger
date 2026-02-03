@@ -1,11 +1,22 @@
+import { useState } from "react"
 import ChatList from "./ChatList"
 
 
 const SideBar = ({ users, onSelectChat, selectedChatId }) => {
 
+    const [sortBy, setSortBy] = useState('newest');
 
+    const sortedUsers = [...users].sort((a, b) => {
+        const dateInMsA = new Date(a.lastMessage.createdAt).getTime()
+        const dateInMsB = new Date(b.lastMessage.createdAt).getTime()
 
+        if (sortBy === 'oldest') {
+            return dateInMsA - dateInMsB
+        } else {
+            return dateInMsB - dateInMsA
+        }
 
+    })
 
     return (
         <div className="grid grid-cols-[50px_1fr_2px]  h-screen  ">
@@ -25,36 +36,10 @@ const SideBar = ({ users, onSelectChat, selectedChatId }) => {
 
                     </button>
 
-
                     <svg width="36" height="1" viewBox="0 0 36 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="0.5" y1="0.5" x2="35.5" y2="0.500003" stroke="black" stroke-opacity="0.1" stroke-linecap="round" />
                     </svg>
 
-
-
-                    <button>
-                        <img src="/public/img/world_icon.png" alt="" className="w-14 h-auto object-contain" />
-
-                    </button>
-
-                    <button>
-                        <img src="/public/img/message_icon.png" alt="" className="w-14 h-auto object-contain" />
-                    </button>
-
-                    <button>
-                        <img src="/public/img/webcam_icon.png" alt="" className="w-14 h-auto object-contain" />
-
-                    </button>
-
-                    <button>
-                        <img src="/public/img/sound_icon.png" alt="" className="w-14 h-auto object-contain" />
-
-                    </button>
-
-                    <button >
-                        <img src="/public/img/calendar_icon.png" alt="" className="w-14 h-auto object-contain" />
-
-                    </button>
                 </div>
 
                 <div className="flex flex-col items-center gap-y-6">
@@ -97,15 +82,18 @@ const SideBar = ({ users, onSelectChat, selectedChatId }) => {
                     <div className="flex items-center gap-x-2 px-2">
                         <p className="text-gray-500">Sort by</p>
 
-                        <select name="sort_chat" id="sort_chat_id">
-                            <option value="newest">Newest</option>
+                        <select
+                            onChange={e => setSortBy(e.target.value)}
+                            name="sort_chat"
+                            id="sort_chat_id">
+                            <option value="newest" selected >Newest</option>
                             <option value="oldest">Oldest</option>
                         </select>
 
                     </div>
 
                     <ChatList
-                        users={users}
+                        users={sortedUsers}
                         onSelectChat={onSelectChat}
                         selectedChatId={selectedChatId} />
 

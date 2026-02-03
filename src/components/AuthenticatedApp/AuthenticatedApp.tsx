@@ -74,7 +74,7 @@ const AuthenticatedApp = () => {
         },
         {
           id: 'm2-2',
-          sender: 'other', // Kate
+          sender: 'other',
           text: "Great! Did you send the report?",
           createdAt: "2023-10-27T14:20:00.000Z",
           status: "delivered",
@@ -99,28 +99,28 @@ const AuthenticatedApp = () => {
     setChatMessages(userMessages)
   }
 
-  useEffect(() => {
-    const lastMessage = chatMessages[chatMessages.length - 1];
+  // useEffect(() => {
+  //   const lastMessage = chatMessages[chatMessages.length - 1];
 
 
-    setTimeout(() => {
-      if (lastMessage.sender === 'other') return;
-      const newMessage = {
-        id: uuidv4(), sender: 'other',
-        text: lastMessage.text,
-        createdAt: new Date().toISOString(),
-        status: "sent",
-        avatar: "/img/my-avatar.png",
-      }
+  //   setTimeout(() => {
+  //     if (lastMessage.sender === 'other') return;
+  //     const newMessage = {
+  //       id: uuidv4(), sender: 'other',
+  //       text: lastMessage.text,
+  //       createdAt: new Date().toISOString(),
+  //       status: "sent",
+  //       avatar: "/img/my-avatar.png",
+  //     }
 
-      setChatMessages(prev => {
-        const updated = [...prev, newMessage]
-        localStorage.setItem('localMessages', JSON.stringify(updated))
-        return updated;
-      })
-    }, 1500)
+  //     setChatMessages(prev => {
+  //       const updated = [...prev, newMessage]
+  //       localStorage.setItem('localMessages', JSON.stringify(updated))
+  //       return updated;
+  //     })
+  //   }, 1500)
 
-  }, [chatMessages])
+  // }, [chatMessages])
 
   const sendMessage = (textMessage) => {
     if (!textMessage.trim()) return;
@@ -139,7 +139,27 @@ const AuthenticatedApp = () => {
       return updated
     })
 
+    const usersUpdated = users.map((user)=>{
+      if (user.id===selectedChatId) {
+        return{
+          ...user,
+          messages: [...user.messages,newMessage],
+          lastMessage:{
+            ...newMessage,
+            count:0,
+          }
+        }
+      } return user
+    })
+
+    localStorage.setItem('localUsers',JSON.stringify(usersUpdated))
+    console.log(1,users);
+    setUsers(usersUpdated)
+
+    console.log(2,usersUpdated);
   }
+
+  const [sortMessages,setSortMessages] = useState('newest')
 
   return (
     <div className='grid grid-cols-[350px_1fr]' >

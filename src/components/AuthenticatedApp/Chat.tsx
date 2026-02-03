@@ -20,12 +20,12 @@ const Chat = ({ chatMessages, setChatMessages,onSendMessage }) => {
 
       <div className="flex flex-col justify-end gap-y-4 px-4 py-2 overflow-y-auto  ">
         {chatMessages.map((sms, index) => {
-          const prevDate = index > 0 ? chatMessages[index - 1].date : null;
+          const prevDate = index > 0 ? chatMessages[index - 1].createdAt : null;
           return (
             <div key={sms.id} className="flex flex-col gap-y-3" >
               <div className="flex justify-center items-center w-full h-4 ">
 
-                <p className=" text-gray-500 font-light" >{getDateSeparator(sms.date, prevDate)}</p>
+                <p className=" text-gray-500 font-light" >{getDateSeparator(sms.createdAt, prevDate)}</p>
 
               </div>
               <MessageItem sms={sms} />

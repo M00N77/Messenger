@@ -76,7 +76,7 @@ const SideBar = ({ users, onSelectChat, selectedChatId }) => {
 
             <div className="flex flex-1 flex-col bg-gray-200 overflow-y-auto min-w-25">
                 <div className="flex flex-col  py-4 gap-y-4">
-                    <h1 className="h-12 flex items-center text-4xl font-medium">Messeges</h1>
+                    <h1 className="h-12 flex items-center text-4xl font-medium px-2">Messeges</h1>
 
                     <div className="flex items-center gap-2 border rounded-xl px-3 py-2 bg-gray-100 border-none">
                         <svg
@@ -94,7 +94,7 @@ const SideBar = ({ users, onSelectChat, selectedChatId }) => {
                             className="w-full outline-none bg-transparent text-gray-700 placeholder-gray-400"
                         />
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-x-2 px-2">
                         <p className="text-gray-500">Sort by</p>
 
                         <select name="sort_chat" id="sort_chat_id">
@@ -103,9 +103,12 @@ const SideBar = ({ users, onSelectChat, selectedChatId }) => {
                         </select>
 
                     </div>
-                   
-                        <ChatList users={users} onSelectChat={onSelectChat} selectedChatId={selectedChatId} />
-                    
+
+                    <ChatList
+                        users={users}
+                        onSelectChat={onSelectChat}
+                        selectedChatId={selectedChatId} />
+
 
                 </div>
             </div>

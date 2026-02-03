@@ -20,16 +20,16 @@ const AuthenticatedApp = () => {
       lastMessage: {
         count: 2,
         text: "See you later!",
-        time: "16:45",
+        createdAt: "2023-10-27T16:45:00.000Z",
         status: "read",
       },
-      // А вот и история переписки
+      
       messages: [
         {
           id: 'm1-1',
           sender: 'other',
           text: "Hi! How are you?",
-          date: "2023-10-27T10:00:00.000Z",
+          createdAt: "2023-10-27T10:00:00.000Z",
           status: "read",
           avatar: "/img/avatar.png"
         },
@@ -37,7 +37,7 @@ const AuthenticatedApp = () => {
           id: 'm1-2',
           sender: 'me',
           text: "I'm fine, thanks! And you?",
-          date: "2023-10-27T10:05:00.000Z",
+          createdAt: "2023-10-27T10:05:00.000Z",
           status: "read",
           avatar: "/img/my-avatar.png"
         },
@@ -45,7 +45,7 @@ const AuthenticatedApp = () => {
           id: 'm1-3',
           sender: 'other',
           text: "See you later!",
-          date: "2023-10-27T16:45:00.000Z",
+          createdAt: "2023-10-27T16:45:00.000Z",
           status: "read",
           avatar: "/img/avatar.png"
         }
@@ -60,7 +60,7 @@ const AuthenticatedApp = () => {
       lastMessage: {
         count: 1,
         text: "Did you send the report?",
-        time: "14:20",
+        createdAt: "2023-10-27T14:20:00.000Z",
         status: "delivered",
       },
       messages: [
@@ -68,7 +68,7 @@ const AuthenticatedApp = () => {
           id: 'm2-1',
           sender: 'me',
           text: "Hey Kate, I finished the design.",
-          date: "2023-10-26T09:00:00.000Z",
+          createdAt: "2023-10-26T09:00:00.000Z",
           status: "read",
           avatar: "/img/my-avatar.png"
         },
@@ -76,7 +76,7 @@ const AuthenticatedApp = () => {
           id: 'm2-2',
           sender: 'other', // Kate
           text: "Great! Did you send the report?",
-          date: "2023-10-27T14:20:00.000Z",
+          createdAt: "2023-10-27T14:20:00.000Z",
           status: "delivered",
           avatar: "/img/avatar_2.png"
         }
@@ -108,7 +108,7 @@ const AuthenticatedApp = () => {
       const newMessage = {
         id: uuidv4(), sender: 'other',
         text: lastMessage.text,
-        date: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
         status: "sent",
         avatar: "/img/my-avatar.png",
       }
@@ -128,7 +128,7 @@ const AuthenticatedApp = () => {
       id: uuidv4(),
       sender: 'me',
       text: textMessage,
-      date: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
       status: "sent",
       avatar: "/img/my-avatar.png",
     }

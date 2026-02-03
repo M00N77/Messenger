@@ -10,7 +10,7 @@
 
 **Современный мессенджер с имитацией Real-time взаимодействия, чистой архитектурой и фокусом на UX.**
 
-[Открыть Демо](https://your-link-here.com) · [Сообщить о баге](https://github.com/M00N77/Messenger/issues) · [Предложить фичу](https://github.com/M00N77/Messenger/issues)
+[Открыть Демо(Позже)] · [Сообщить о баге](https://github.com/M00N77/Messenger/issues) · [Предложить фичу](https://github.com/M00N77/Messenger/issues)
 
 </div>
 

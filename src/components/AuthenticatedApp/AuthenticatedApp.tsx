@@ -87,8 +87,10 @@ const AuthenticatedApp = () => {
   const [chatMessages, setChatMessages] = useState(initMessages)
 
   const [users,setUsers] = useState(initUsers);
+  const [selectedChatId,setSelectedChatId] = useState(0)
 
   const selectChat = (userId) => {
+    setSelectedChatId(userId)
     const [selectedUser] = users.filter(user => (user.id === userId));
 
     const userMessages = selectedUser.messages
@@ -144,6 +146,7 @@ const AuthenticatedApp = () => {
       <SideBar
         users={users}
         onSelectChat={selectChat}
+        selectedChatId={selectedChatId}
       />
       <Chat
         chatMessages={chatMessages}

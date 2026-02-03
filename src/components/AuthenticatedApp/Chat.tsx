@@ -7,6 +7,7 @@ import { useRef } from "react";
 const Chat = ({ chatMessages, setChatMessages,onSendMessage }) => {
 
   const messageInput = useRef(null)
+  
 
   const handleClick = () => {
     const textMessage = messageInput.current.value;

@@ -1,15 +1,15 @@
 import ChatList from "./ChatList"
 
 
-const SideBar = ({users,onSelectChat}) => {
+const SideBar = ({ users, onSelectChat, selectedChatId }) => {
 
-    
-    
 
-    
+
+
+
     return (
         <div className="grid grid-cols-[50px_1fr_2px]  h-screen  ">
-            
+
             <div className="flex flex-col justify-between items-center bg-gray-100">
                 <div className="w-1/2 flex flex-col items-center gap-y-6 py-4 " >
 
@@ -25,34 +25,34 @@ const SideBar = ({users,onSelectChat}) => {
 
                     </button>
 
-                    
+
                     <svg width="36" height="1" viewBox="0 0 36 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="0.5" y1="0.5" x2="35.5" y2="0.500003" stroke="black" stroke-opacity="0.1" stroke-linecap="round" />
+                        <line x1="0.5" y1="0.5" x2="35.5" y2="0.500003" stroke="black" stroke-opacity="0.1" stroke-linecap="round" />
                     </svg>
 
-                    
+
 
                     <button>
-                        <img src="/public/img/world_icon.png" alt=""  className="w-14 h-auto object-contain"/>
+                        <img src="/public/img/world_icon.png" alt="" className="w-14 h-auto object-contain" />
 
                     </button>
 
                     <button>
-                        <img src="/public/img/message_icon.png" alt=""  className="w-14 h-auto object-contain"/>
+                        <img src="/public/img/message_icon.png" alt="" className="w-14 h-auto object-contain" />
                     </button>
 
                     <button>
-                        <img src="/public/img/webcam_icon.png" alt=""  className="w-14 h-auto object-contain"/>
+                        <img src="/public/img/webcam_icon.png" alt="" className="w-14 h-auto object-contain" />
 
                     </button>
 
                     <button>
-                        <img src="/public/img/sound_icon.png" alt=""  className="w-14 h-auto object-contain"/>
+                        <img src="/public/img/sound_icon.png" alt="" className="w-14 h-auto object-contain" />
 
                     </button>
 
                     <button >
-                        <img src="/public/img/calendar_icon.png" alt=""  className="w-14 h-auto object-contain"/>
+                        <img src="/public/img/calendar_icon.png" alt="" className="w-14 h-auto object-contain" />
 
                     </button>
                 </div>
@@ -75,7 +75,7 @@ const SideBar = ({users,onSelectChat}) => {
             </div>
 
             <div className="flex flex-1 flex-col bg-gray-200 overflow-y-auto min-w-25">
-                <div className="flex flex-col px-2 py-4 gap-y-4">
+                <div className="flex flex-col  py-4 gap-y-4">
                     <h1 className="h-12 flex items-center text-4xl font-medium">Messeges</h1>
 
                     <div className="flex items-center gap-2 border rounded-xl px-3 py-2 bg-gray-100 border-none">
@@ -103,12 +103,13 @@ const SideBar = ({users,onSelectChat}) => {
                         </select>
 
                     </div>
-
-                    <ChatList users={users} onSelectChat={onSelectChat} />
+                   
+                        <ChatList users={users} onSelectChat={onSelectChat} selectedChatId={selectedChatId} />
+                    
 
                 </div>
             </div>
-            
+
         </div>
     )
 }

@@ -1,14 +1,19 @@
 import type { User } from 't'
+import clsx from 'clsx';
 
 interface ChatItemProps {
-    user: User
+    user: User,
+    onSelectChat: (id: number) => void,
+    isActive: boolean,
+
 }
 
-const ChatItem = ({ user,onSelectChat }: ChatItemProps) => {
+const ChatItem = ({ user, onSelectChat, isActive }: ChatItemProps) => {
     const { name, avatar, isOnline, isTyping, lastMessage } = user;
+
     return (
-        <div onClick={()=>onSelectChat(user.id)}>
-            <div className="flex justify-between py-2" >
+        <div onClick={() => onSelectChat(user.id)} className={clsx(isActive ? "bg-amber-50" : "")}>
+            <div className="flex justify-between py-2 px-2" >
                 <div className="flex justify-center items-center gap-x-2" >
                     <div className="relative">
                         <img src={avatar} alt="" className="w-10 h-10 rounded-full" />

@@ -1,4 +1,4 @@
-import type { User } from 't'
+import type { User } from 'types'
 import clsx from 'clsx';
 import formatTime from "../../utiils/formatTime"
 
@@ -31,8 +31,8 @@ const ChatItem = ({ user, onSelectChat, isActive }: ChatItemProps) => {
                     {lastMessage.count === 0 ? (
                         <>
                             <p className="text-gray-500 " >{formatTime(lastMessage.createdAt)}</p>
-                            {lastMessage.status === 'sent' && <span className="text-blue-300 " >✓</span>}
-                            {lastMessage.status === 'read' && <span className="text-blue-500" >✓✓</span>}
+                            {lastMessage.status === 'sent' && <span className="text-blue-950 " >✓</span>}
+                            {lastMessage.status === 'read' && <span className="text-blue-600" >✓✓</span>}
                         </>
                     ) : (
                         <>
